@@ -1,0 +1,76 @@
+===============================================================================
+	-CERINTA 1 -
+ 
+ Functia de baza pt realizarea cerintei a fost functia meniu_joc care  
+afiseaza meniul. in main() avem un while din care se iese doar daca selectam
+quit cu sageti si enter ( tasta este preluata cu ajutorul functiei wgetch).
+Cand selectam New Game intram in alt while ( in care si initializam tot ce este
+necesar pentru plansa de joc ) din care iesim cu q, iar atunci atribuim
+resume = 1 iar astfel optiunea de resume devine valida.
+	
+	-CERINTA 2-
+
+ Esential este structul NAVA care contine datele despre navele jucatorului sau
+pe cele ale calculatorului (lungime, pozitie etc). Cu ajutorul functiei
+initializare_set_nave, initiem cele doua flote. Functia sablon_harta
+initializeaza o harta goala care apoi prin functia generator_harta
+devine o harta valida random pentru computer. Functia sablon_harta
+poate primi si parametru, caz in care transpune din grafic (harta
+jucatorului, formata dupa modelul din cerinta temei) in 0 si 1 pentru
+a o utiliza in joc. Prin functia print_grid, generam cele doua planse
+de joc
+	-CERINTA 3-
+ 
+ Am implementat posibilitatea jucatorului de a alege cu sageti si enter
+casutele din gridul computerului folosind functia interfata de atac.
+Functia returneaza 0 daca jucatorul rateaza si 1 daca nimereste,
+asa trecem la celalalt jucator, computerul. Cu functia afisare_nave afisam
+navele pe planse
+ Calculatorul ataca la intamplare prin functia atac_random care returneaza pe 
+acelasi principiu ca functia jucatorului. Cu functia delay asteptam 3 secunde
+intre mutarile computerului
+
+	-CERINTA 4-
+ RANDOMIZE MAP - esentiala este functia scan_harta care actualizeaza datele
+flotelor in functie de loviturile primite, apoi functia harta_dupa_randomizare
+goleste harta lasand pe ea doar navele distruse complet. generator_harta
+plaseaza celelalte nave aleator
+ DESTROY IN ADVANCE - folosind functia atac_random generam 10 atacuri aleatorii
+insa tinem cont de numarul de nave, daca se ajunge la 0 la una dintre flote,
+iesim din mod si incheiem jocul
+
+	-CERINTA 5-
+ 
+ Scorul il afisam usor deoarece stim cate nave raman active, folosind functia
+scan_harta si apoi cu functia nave_ramase aflam cate nave sunt din fiecare
+flota ( 10 - cate nave au ramas)
+
+
+===============================================================================
+					BONUS
+ ATAC INTELIGENT - am introdus prin functia comp_atac un mod inteligent de a 
+ataca pentru calculator: cand nimereste, trage la intamplare in jurul acestei 
+zone pana nimereste inca o data, apoi stie orientarea navei si trage aleator
+ in cele doua sensuri ale directiei pana distruge complet nava. De asemenea
+ stie  ca daca a distrus o nava de 4 nu mai are rost sa mai traga daca
+a gasit o zona unde a nimerit 3 bucati si trece mai departe. De asemenea
+nu trage langa sau in diagonal cu zonele distruse.
+
+ ALEGERE HARTA - am introdus meniu pentru a alege harta sau daca doresti
+ random, se poate intoarce in meniul principal din aceasta fereastra cu
+q
+
+ ALEGERE GAMEMODE - poti alege STANDARD - jocul implementat asa cum e
+cerut de tema, sau EXPERT in care optiunile Destroy in advance si randomize
+sunt dezactivate, calculatorul ataca inteligent si mai rapid
+ IMBUNATATIRE VIZUALA + SUNETE - am adaugat numeroase texte si sunete 
+pentru cand ataca PC ul sau jucatorul
+
+ SCOR IMBUNATATIT - pe langa cerinta, in fereastra de scor avem o animatie
+si sunete plus avem cate nave a distrus din fiecare lungime fiecare jucator
+si cat de eficient a fost (lovituri reusite pe lovituri totale )
+ ASEZAREA TEXTULUI - se poate juca in rezolutii diverse, jucatorul poate
+redimenisona fereastra iar textul se va aseza centrat sau relativ la celelalte
+elemente de text
+
+  	
